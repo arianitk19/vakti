@@ -1,0 +1,8 @@
+{
+  "name": "vakt",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vakt — Kosovo-first prayer companion PWA (HTML + Tailwind + vanilla JS)",
+  "scripts": { "build": "node tools/build.mjs", "serve": "npx http-server -p 8080 -c-1" },
+  "devDependencies": { "tailwindcss": "^3.4.0" }
+}

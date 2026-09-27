@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="sq" data-theme="system">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Vakt — Kohët e namazit në Kosovë</title>
+  <meta name="description" content="Vakt: kohët zyrtare të namazit për Kosovën, Qibla, lutje, dhikr dhe ligjërata — një hapësirë e qetë për ta organizuar ditën rreth namazit.">
+  <meta name="theme-color" content="#F6F5F2">
+  <meta name="color-scheme" content="light dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Vakt">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="preload" href="css/fonts/plus-jakarta-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- Resolve theme before first paint: no white flash -->
+  <script>
+    (function () {
+      try {
+        var t = JSON.parse(localStorage.getItem('vakt:s:theme')) || 'system';
+        var d = t === 'dark' || (t === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
+        var e = document.documentElement; e.dataset.theme = t; e.dataset.resolved = d ? 'dark' : 'light';
+        var l = JSON.parse(localStorage.getItem('vakt:s:lang')); if (l) e.lang = l;
+        var s = JSON.parse(localStorage.getItem('vakt:s:fontScale')); if (s) e.style.setProperty('--scale', s);
+        document.querySelector('meta[name=theme-color]').content = d ? '#0B0D12' : '#F6F5F2';
+      } catch (x) { document.documentElement.dataset.resolved = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+    })();
+  </script>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/tailwind.css">
+</head>
+<body>
+  <a href="#view" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-surface focus:px-4 focus:py-2 focus:rounded-full" onclick="document.getElementById('view').focus();return false">Kalo te përmbajtja</a>
+  <div id="app">
+    <aside id="sidebar" aria-label="Navigimi"></aside>
+    <div id="content" class="min-w-0">
+      <header id="topbar"></header>
+      <main id="view" tabindex="-1" aria-live="off"></main>
+    </div>
+    <nav id="bottomnav" aria-label="Navigimi kryesor"></nav>
+  </div>
+  <div id="player" data-mode="hidden"></div>
+  <div id="sheet-root"></div>
+  <div id="toast-root" role="status" aria-live="polite"></div>
+  <div id="onboarding" class="hidden"></div>
+  <div id="boot" class="fixed inset-0 z-[95] grid place-items-center bg-bg" aria-hidden="true">
+    <svg viewBox="0 0 64 64" class="w-14 h-14"><rect width="64" height="64" rx="16" fill="#0F172A"/><path d="M14 43a18 18 0 0 1 36 0" fill="none" stroke="#B7B0FF" stroke-width="4" stroke-linecap="round"/><path d="M10 48h44" stroke="#B7B0FF" stroke-width="2.5" stroke-linecap="round" opacity=".55"/><circle cx="41.5" cy="27.5" r="4.2" fill="#F4C27A"/></svg>
+  </div>
+  <noscript><p style="padding:2rem;font-family:system-ui">Vakt kërkon JavaScript për të funksionuar.</p></noscript>
+  <script>
+    // ES modules and fetch() are blocked by browsers on file:// — tell the user how to run it instead of hanging on the splash.
+    if (location.protocol === 'file:') {
+      addEventListener('DOMContentLoaded', function () {
+        var b = document.getElementById('boot');
+        b.setAttribute('aria-hidden', 'false');
+        b.innerHTML = '<div style="max-width:440px;padding:24px;font-family:system-ui,sans-serif;line-height:1.6;color:#0F172A;text-align:center"><h1 style="font-size:1.3rem">Vakt duhet hapur përmes serverit</h1><p>Shfletuesi bllokon aplikacionin kur hapet direkt si skedar (file://).</p><p><b>Windows:</b> dy herë klik te <code>start.bat</code><br><b>Mac/Linux:</b> <code>sh start.sh</code><br>pastaj hap <code>http://localhost:8080</code></p></div>';
+      });
+    }
+  </script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

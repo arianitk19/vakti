@@ -1,0 +1,26 @@
+[
+  {
+    "id": "elvis-naci",
+    "name": "Elvis Naçi",
+    "description": "Teolog dhe imam nga Tirana, drejtues i Fondacionit \"Firdeus\". I njohur për ligjërata publike dhe qëndrim të hapur kundër ekstremizmit fetar.",
+    "channelUrl": "https://www.youtube.com/elvisnaciligjerata"
+  },
+  {
+    "id": "ardian-sejdiu",
+    "name": "Ardian Sejdiu",
+    "description": "Teolog nga Kosova, autor ligjëratash mbi tema fetare, morale dhe shoqërore, të publikuara rregullisht në kanalin e tij.",
+    "channelUrl": "https://www.youtube.com/@teologardiansejdiu3596"
+  },
+  {
+    "id": "shefqet-krasniqi",
+    "name": "Shefqet Krasniqi",
+    "description": "Doktor i shkencave islame (Universiteti i Medinës), ish-imam i Xhamisë së Madhe në Prishtinë dhe ligjërues në Fakultetin e Studimeve Islame.",
+    "channelUrl": "https://www.youtube.com/@DrShefqetKrasniqi"
+  },
+  {
+    "id": "enis-rama",
+    "name": "Enis Rama",
+    "description": "Hoxhë dhe imam i xhamisë \"Isa Beg\" në Mitrovicë.",
+    "channelUrl": "https://www.youtube.com/@hoxheenisrama"
+  }
+]
